@@ -21,10 +21,8 @@ namespace FamilyTree.Extension
         public EncyclopediaHeroPageVMMixin(EncyclopediaHeroPageVM vm) : base(vm)
         {
             _hero = vm.Obj as Hero;
-            // Hero ancestor = FamilyHelper.FindAncestorOf(_hero);
-            Hero paternalAncestor = HeroHelper.FindPaternalAncestorOf(_hero);
-            Hero maternalAncestor = HeroHelper.FindMaternalAncestorOf(_hero);
-            FamilyTree = new EncyclopediaFamilyTreeNodeVM(paternalAncestor, _hero);
+            Hero rootHero = HeroHelper.FindAncestorOf(_hero, _hero.Clan);
+            FamilyTree = new EncyclopediaFamilyTreeNodeVM(rootHero, _hero);
             vm.RefreshValues();
             FamilyTreeText = GameTexts.FindText("str_family_tree_group", null).ToString();
             vm.Refresh();

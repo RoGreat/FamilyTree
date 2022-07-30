@@ -11,17 +11,13 @@ namespace FamilyTree.Encyclopedia
 
         private HeroVM _familyMember;
 
-        public EncyclopediaFamilyTreeNodeVM(Hero ancestor, Hero hero)
+        public EncyclopediaFamilyTreeNodeVM(Hero rootHero, Hero activeHero)
         {
             Branch = new MBBindingList<EncyclopediaFamilyTreeNodeVM>();
-            FamilyMember = new HeroVM(hero);
-            foreach (Hero child in ancestor.Children)
+            FamilyMember = new HeroVM(rootHero);
+            foreach (Hero child in rootHero.Children)
             {
-                if (child == ancestor)
-                {
-                    continue;
-                }
-                Branch.Add(new EncyclopediaFamilyTreeNodeVM(hero, child));
+                Branch.Add(new EncyclopediaFamilyTreeNodeVM(child, activeHero));
             }
         }
 

@@ -3,6 +3,7 @@ using Bannerlord.UIExtenderEx.Prefabs2;
 
 namespace FamilyTree.Extension
 {
+    /* Modules\SandBox\GUI\Prefabs\Encyclopedia\EncyclopediaSubPages */
     [PrefabExtension("EncyclopediaHeroPage", "descendant::NavigationScopeTargeter[@ScopeID='EncyclopediaHeroFamilyContentScope']")]
     internal class EncyclopediaFamilyGridScopeTargeterExtension: PrefabExtensionInsertPatch
     {
@@ -13,7 +14,7 @@ namespace FamilyTree.Extension
 
     }
 
-    /* Goes in reverse order */
+    /* Added in reverse order */
     [PrefabExtension("EncyclopediaHeroPage", "descendant::NavigatableGridWidget[@Id='FamilyGrid']")]
     internal class EncyclopediaFamilyTreeWidgetExtension : PrefabExtensionInsertPatch
     {

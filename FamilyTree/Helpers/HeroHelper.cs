@@ -4,20 +4,23 @@ namespace FamilyTree.Extension
 {
     public static class HeroHelper
     {
-        public static Hero FindPaternalAncestorOf(Hero hero)
+        public static Hero FindAncestorOf(Hero hero, Clan clan)
         {
-            if (hero.Father is not null)
+            if (hero.Father?.IsFactionLeader ?? false)
             {
-                return FindPaternalAncestorOf(hero.Father);
+                return FindAncestorOf(hero.Father, clan);
             }
-            return hero;
-        }
-
-        public static Hero FindMaternalAncestorOf(Hero hero)
-        {
-            if (hero.Mother is not null)
+            if (hero.Mother?.IsFactionLeader ?? false)
             {
-                return FindMaternalAncestorOf(hero.Mother);
+                return FindAncestorOf(hero.Mother, clan);
+            }
+            if (hero.Father?.Clan == clan)
+            {
+                return FindAncestorOf(hero.Father, clan);
+            }
+            if (hero.Mother?.Clan == clan)
+            {
+                return FindAncestorOf(hero.Mother, clan);
             }
             return hero;
         }
