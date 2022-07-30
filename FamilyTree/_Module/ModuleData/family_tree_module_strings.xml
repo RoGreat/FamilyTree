@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+  <strings>
+		<!-- Hero Page -->
+		<string id="str_family_tree_group" text="{=familytreegroup}Family Tree" />
+  </strings>

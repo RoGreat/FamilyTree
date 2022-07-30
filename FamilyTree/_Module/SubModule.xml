@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Module>
+  <Name value="Family Tree" />
+  <Id value="$modulename$" />
+  <Version value="v$version$" />
+  <Official value="false" />
+  <DefaultModule value="false" />
+  <SingleplayerModule value="true" />
+  <MultiplayerModule value="false" />
+  <DependedModules>
+    <DependedModule Id="Bannerlord.Harmony" />
+    <DependedModule Id="Bannerlord.UIExtenderEx" />
+    <DependedModule Id="Native" />
+    <DependedModule Id="SandBoxCore" />
+    <DependedModule Id="Sandbox" />
+    <DependedModule Id="StoryMode" />
+  </DependedModules>
+	<DependedModuleMetadatas>
+	  <DependedModuleMetadata id="Bannerlord.Harmony" order="LoadBeforeThis"/>
+	  <DependedModuleMetadata id="Bannerlord.UIExtenderEx" order="LoadBeforeThis"/>
+	
+	  <DependedModuleMetadata id="Native" order="LoadBeforeThis" version="e$gameversion$.*"/>
+	  <DependedModuleMetadata id="SandBoxCore" order="LoadBeforeThis" version="e$gameversion$.*"/>
+	  <DependedModuleMetadata id="Sandbox" order="LoadBeforeThis" version="e$gameversion$.*"/>
+	  <DependedModuleMetadata id="StoryMode" order="LoadBeforeThis" version="e$gameversion$.*"/>
+	  <DependedModuleMetadata id="CustomBattle" order="LoadBeforeThis" version="e$gameversion$.*" optional="true"/>
+	  </DependedModuleMetadatas>
+  <SubModules>
+    <SubModule>
+      <Name value="Family Tree" />
+      <DLLName value="$modulename$.dll" />
+      <SubModuleClassType value="$modulename$.SubModule" />
+      <Tags />
+    </SubModule>
+  </SubModules>
+
+  <Xmls>
+    <XmlNode>
+			<XmlName id="GameText" path="family_tree_module_strings"/>
+		</XmlNode>
+  </Xmls>
+</Module>
