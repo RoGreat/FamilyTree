@@ -34,9 +34,9 @@
     </SubModule>
   </SubModules>
 
-  <Xmls>
-    <XmlNode>
+	<Xmls>
+		<XmlNode>
 			<XmlName id="GameText" path="family_tree_module_strings"/>
 		</XmlNode>
-  </Xmls>
+	</Xmls>
 </Module>

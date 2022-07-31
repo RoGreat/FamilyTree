@@ -1,5 +1,6 @@
 ﻿using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.ViewModelCollection;
+using TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia.Items;
 using TaleWorlds.Library;
 
 namespace FamilyTree.Encyclopedia
@@ -9,12 +10,12 @@ namespace FamilyTree.Encyclopedia
     {
         private MBBindingList<EncyclopediaFamilyTreeNodeVM> _branch;
 
-        private HeroVM _familyMember;
+        private EncyclopediaFamilyMemberVM _familyMember;
 
         public EncyclopediaFamilyTreeNodeVM(Hero rootHero, Hero activeHero)
         {
             Branch = new MBBindingList<EncyclopediaFamilyTreeNodeVM>();
-            FamilyMember = new HeroVM(rootHero);
+            FamilyMember = new EncyclopediaFamilyMemberVM(rootHero, activeHero);
             foreach (Hero child in rootHero.Children)
             {
                 Branch.Add(new EncyclopediaFamilyTreeNodeVM(child, activeHero));
@@ -32,6 +33,23 @@ namespace FamilyTree.Encyclopedia
         }
 
         [DataSourceProperty]
+        public EncyclopediaFamilyMemberVM FamilyMember
+        {
+            get
+            {
+                return _familyMember;
+            }
+            set
+            {
+                if (value != _familyMember)
+                {
+                    _familyMember = value;
+                    OnPropertyChangedWithValue(value, "FamilyMember");
+                }
+            }
+        }
+
+        [DataSourceProperty]
         public MBBindingList<EncyclopediaFamilyTreeNodeVM> Branch
         {
             get
@@ -44,23 +62,6 @@ namespace FamilyTree.Encyclopedia
                 {
                     _branch = value;
                     OnPropertyChanged("Branch");
-                }
-            }
-        }
-
-        [DataSourceProperty]
-        public HeroVM FamilyMember
-        {
-            get
-            {
-                return _familyMember;
-            }
-            set
-            {
-                if (value != _familyMember)
-                {
-                    _familyMember = value;
-                    OnPropertyChanged("FamilyMember");
                 }
             }
         }

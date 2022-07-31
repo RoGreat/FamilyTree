@@ -21,11 +21,11 @@ namespace FamilyTree.Extension
         public EncyclopediaHeroPageVMMixin(EncyclopediaHeroPageVM vm) : base(vm)
         {
             _hero = vm.Obj as Hero;
-            Hero rootHero = HeroHelper.FindAncestorOf(_hero, _hero.Clan);
+            /* TaleWorlds refers to the "root" as the top of the upgrade tree AKA oldest ancestor in our case */
+            Hero rootHero = HeroHelper.FindAncestorOf(_hero);
             FamilyTree = new EncyclopediaFamilyTreeNodeVM(rootHero, _hero);
             vm.RefreshValues();
             FamilyTreeText = GameTexts.FindText("str_family_tree_group", null).ToString();
-            vm.Refresh();
         }
 
         [DataSourceProperty]
