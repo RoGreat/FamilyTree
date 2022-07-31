@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
   <strings>
 		<!-- Family Tree Group -->
-		<string id="str_family_tree_group" text="{=familytreegroup}Family Tree" />
+		<string id="str_familytreegroup" text="{=familytreegroup}Family Tree" />
 		<!-- Family Tree Roles -->
 		<string id="str_twin" text="{=twin}twin" />
 		<string id="str_sister" text="{=sister}sister" />

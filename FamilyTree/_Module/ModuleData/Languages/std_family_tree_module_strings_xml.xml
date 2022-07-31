@@ -5,7 +5,7 @@
   </tags>
   <strings>
 		<!-- Family Tree Group -->
-		<string id="family_tree_group" text="Family Tree" />
+		<string id="familytreegroup" text="Family Tree" />
 		<!-- Family Tree Roles -->
 		<string id="twin" text="twin" />
 		<string id="sister" text="sister" />
