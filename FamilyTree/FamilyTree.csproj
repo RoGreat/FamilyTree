@@ -1,10 +1,14 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <Version>1.1.0</Version>
 =======
 <Project Sdk="Bannerlord.BUTRModule.Sdk/1.0.1.68">
+=======
+﻿<Project Sdk="Bannerlord.BUTRModule.Sdk/1.0.1.68">
+>>>>>>> Update Harmony
 
   <PropertyGroup>
     <Version>1.1.1</Version>
@@ -81,7 +85,7 @@
 
   <!-- Development Variables -->
   <PropertyGroup>
-    <HarmonyVersion>2.2.1</HarmonyVersion>
+    <HarmonyVersion>2.2.2</HarmonyVersion>
     <UIExtenderExVersion>2.2.5</UIExtenderExVersion>
   </PropertyGroup>
 
