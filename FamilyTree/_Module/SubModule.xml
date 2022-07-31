@@ -83,5 +83,10 @@
       <Tags />
     </SubModule>
   </SubModules>
+	<Xmls>
+		<XmlNode>
+			<XmlName id="GameText" path="family_tree_module_strings"/>
+		</XmlNode>
+	</Xmls>
 </Module>
 >>>>>>> Add project files.
