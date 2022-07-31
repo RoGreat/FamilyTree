@@ -25,7 +25,7 @@ namespace FamilyTree.Extension
             Hero rootHero = HeroHelper.FindAncestorOf(_hero);
             FamilyTree = new EncyclopediaFamilyTreeNodeVM(rootHero, _hero);
             vm.RefreshValues();
-            FamilyTreeText = GameTexts.FindText("str_family_tree_group", null).ToString();
+            FamilyTreeText = GameTexts.FindText("str_familytreegroup", null).ToString();
         }
 
         [DataSourceProperty]
