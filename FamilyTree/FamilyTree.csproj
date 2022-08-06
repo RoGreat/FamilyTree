@@ -12,11 +12,15 @@
 
   <PropertyGroup>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <Version>1.1.1</Version>
 >>>>>>> Add project files.
 =======
     <Version>1.2.0</Version>
 >>>>>>> v1.2.0 release version
+=======
+    <Version>1.2.1</Version>
+>>>>>>> Update version
     <TargetFramework>net472</TargetFramework>
     <Platforms>x64</Platforms>
     <LangVersion>10.0</LangVersion>
