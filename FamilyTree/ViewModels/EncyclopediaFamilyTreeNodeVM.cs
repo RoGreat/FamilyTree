@@ -16,10 +16,10 @@ namespace FamilyTree.ViewModels
         // activeHero is always the currently selected hero
         public EncyclopediaFamilyTreeNodeVM(Hero rootHero, Hero activeHero)
         {
-            Branch = new();
-            FamilyMember = new()
+            FamilyBranch = new MBBindingList<EncyclopediaFamilyTreeNodeVM>();
+            FamilyMember = new MBBindingList<EncyclopediaFamilyMemberVM>
             {
-                new EncyclopediaFamilyMemberVM(rootHero, activeHero)
+                new(rootHero, activeHero)
             };
             if (rootHero.Spouse is not null)
             {
@@ -27,20 +27,20 @@ namespace FamilyTree.ViewModels
             }
             // Almost forgot to add exspouses
             // We'll see how crazy this gets!
-            foreach (Hero exSpouses in rootHero.ExSpouses)
+            foreach (var exSpouses in rootHero.ExSpouses)
             {
                 FamilyMember.Add(new EncyclopediaFamilyMemberVM(exSpouses, activeHero));
             }
-            foreach (Hero child in rootHero.Children)
+            foreach (var child in rootHero.Children)
             {
-                Branch.Add(new EncyclopediaFamilyTreeNodeVM(child, activeHero));
+                FamilyBranch.Add(new EncyclopediaFamilyTreeNodeVM(child, activeHero));
             }
         }
 
         public override void RefreshValues()
         {
             base.RefreshValues();
-            Branch.ApplyActionOnAllItems(delegate (EncyclopediaFamilyTreeNodeVM x)
+            FamilyBranch.ApplyActionOnAllItems(delegate (EncyclopediaFamilyTreeNodeVM x)
             {
                 x.RefreshValues();
             });
@@ -53,34 +53,30 @@ namespace FamilyTree.ViewModels
         [DataSourceProperty]
         public MBBindingList<EncyclopediaFamilyMemberVM> FamilyMember
         {
-            get
-            {
-                return _familyMember;
-            }
+            get => _familyMember;
             set
             {
-                if (value != _familyMember)
+                if (value == _familyMember)
                 {
-                    _familyMember = value;
-                    OnPropertyChanged("FamilyMember");
+                    return;
                 }
+                _familyMember = value;
+                OnPropertyChanged();
             }
         }
 
         [DataSourceProperty]
-        public MBBindingList<EncyclopediaFamilyTreeNodeVM> Branch
+        public MBBindingList<EncyclopediaFamilyTreeNodeVM> FamilyBranch
         {
-            get
-            {
-                return _branch;
-            }
+            get => _branch;
             set
             {
-                if (value != _branch)
+                if (value == _branch)
                 {
-                    _branch = value;
-                    OnPropertyChanged("Branch");
+                    return;
                 }
+                _branch = value;
+                OnPropertyChanged();
             }
         }
     }

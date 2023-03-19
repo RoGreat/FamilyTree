@@ -21,43 +21,39 @@ namespace FamilyTree.ViewModels
         public EncyclopediaHeroPageVMMixin(EncyclopediaHeroPageVM vm) : base(vm)
         {
             _hero = (vm.Obj as Hero)!;
-            Hero rootHero = HeroHelper.FindAncestorOf(_hero);
+            var rootHero = HeroHelper.FindAncestorOf(_hero);
             FamilyTree = new EncyclopediaFamilyTreeNodeVM(rootHero, _hero);
             vm.RefreshValues();
-            FamilyTreeText = GameTexts.FindText("str_familytreegroup", null).ToString();
+            FamilyTreeText = GameTexts.FindText("str_familytreegroup").ToString();
         }
 
         [DataSourceProperty]
         public EncyclopediaFamilyTreeNodeVM FamilyTree
         {
-            get
-            {
-                return _familyTree;
-            }
+            get => _familyTree;
             set
             {
-                if (value != _familyTree)
+                if (value == _familyTree)
                 {
-                    _familyTree = value;
-                    ViewModel?.OnPropertyChangedWithValue(value, "FamilyTree");
+                    return;
                 }
+                _familyTree = value;
+                ViewModel?.OnPropertyChangedWithValue(value);
             }
         }
 
         [DataSourceProperty]
         public string FamilyTreeText
         {
-            get
-            {
-                return _familyTreeText;
-            }
+            get => _familyTreeText;
             set
             {
-                if (value != _familyTreeText)
+                if (value == _familyTreeText)
                 {
-                    _familyTreeText = value;
-                    ViewModel?.OnPropertyChangedWithValue(value, "FamilyTreeText");
+                    return;
                 }
+                _familyTreeText = value;
+                ViewModel?.OnPropertyChangedWithValue(value);
             }
         }
     }
